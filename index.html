@@ -1,0 +1,81 @@
+<!doctype html>
+<html ng-app="graphApp">
+	<head>
+		<meta charset="utf-8">
+		<link href="css/c3-0.2.4.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body ng-controller="GraphCtrl">
+
+		<h1>chart using AngularJS</h1>
+	
+
+		
+		<!-- add button -->
+		<div ng-controller="myCtrl">
+             <div>
+            	<button ng-init="clickedh=false" ng-click="clickedh=!clickedh">Add graph</button>
+        	</div>
+
+        	<!-- x and y axis part -->
+        	<div>
+            	<button  ng-show="clickedh" ng-init="xaxis=false" ng-init="savebutton=false" ng-init="yaxis=false" ng-click="xaxis=!xaxis; yaxis=!yaxis; savebutton=!savebutton">model</button>
+        	</div>
+
+        	<p ng-show="xaxis"> X-Axis </p><div ng-show="xaxis">
+				<select ng-model="config.data1" ng-init="selectedData1 = config.data1">
+					<option value1="data1">data1</option>
+					<option value1="data2">data2</option>
+					<option value1="data3">data3</option>
+				</select>
+			</div> 
+
+			<p ng-show="yaxis"> Y-Axis </p><div ng-show="yaxis">
+				<select ng-model="config.data2" ng-init="selectedData2 = config.data2">
+					<option value="data1">data1</option>
+					<option value="data2">data2</option>
+					<option value="data3">data3</option>
+				</select>
+			</div>
+
+
+			<p ng-show="savebutton"> Chart Type </p><div ng-show="savebutton">
+				<select ng-model="value" 
+				ng-model="config.data3" >
+					<option value="bar">barchart</option>
+					<option value="area">Areachart</option>
+					<option value="pie">Piechart</option>
+					<option value="step">stepchart</option>
+					<option value="line">linechart</option>spline
+					<option value="spline">spline chart</option>
+				</select>
+			</div> 
+
+			<button  id="newtab" ng-show="savebutton" ng-init="index =chartIndex" ng-click="showGraph(value, selectedData1, selectedData2);"> Save</button> 
+        	<!--  giving power to user to change the data -->
+        	<!-- <input ng-model="config.data1" type="text" size="100"/>
+			<input ng-model="config.data2" type="text" size="100"/> -->
+        </div>
+
+	<!-- creating tab with html -->
+		<div id='tabs' style="height: 300px">
+		    <ul class="flavours">
+		    </ul>
+	    	
+		</div>
+
+		<!-- Load the javascript libraries -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<script src="js/d3/d3-3.4.11.min.js" charset="utf-8"></script>
+		<script src="js/c3/c3-0.2.4.min.js"></script>
+		<script src="js/angular/angular-1.2.21.min.js"></script>
+		<script src="js/graph-app-2.js"></script>
+
+
+
+
+
+	</body>
+</html>
